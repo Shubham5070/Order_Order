@@ -1,0 +1,56 @@
+ollama
+fastapi
+uvicorn
+requests
+pandas 
+openpyxl
+sentence-transformers
+numpy
+langchain-core
+langchain
+rapidfuzz
+spacy
+rapidfuzz
+fastapi
+sentence-transformers
+pandas
+sklearn
+
+
+Bot: Hi! Ask me about menu or ordering 😊
+You: i need food now
+Bot:
+Intent: UNKNOWN
+Confidence: 0.266
+You: bring me butter naan
+Bot:
+Intent: ADD_ITEM
+Confidence: 0.635
+You: delete one naan
+Bot:
+Intent: REMOVE_ITEM
+Confidence: 0.81
+You: i dont want paneer now
+Bot:
+Intent: ADD_ITEM
+Confidence: 0.405
+You: show everything i ordered
+Bot:
+Intent: SHOW_CART
+Confidence: 0.758
+You: confirm and pay
+Bot:
+Intent: CONFIRM_ORDER
+Confidence: 0.91
+You: any good snacks
+Bot:
+Intent: SUGGEST_FOOD
+Confidence: 0.351
+You: is butter naan unhealthy
+Bot:
+Intent: ADD_ITEM
+Confidence: 0.37
+You: tell me something cool
+Bot:
+Intent: SUGGEST_FOOD
+Confidence: 0.418

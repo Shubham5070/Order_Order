@@ -1,0 +1,572 @@
+[
+  {
+    "text": "order espresso",
+    "entities": [[6, 14, "FOOD_ITEM"]]
+  },
+  {
+    "text": "order coffee",
+    "entities": [[6, 12, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add cappuccino",
+    "entities": [[4, 14, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order cafe latte",
+    "entities": [[6, 17, "FOOD_ITEM"]]
+  },
+  {
+    "text": "please order iced latte",
+    "entities": [[13, 23, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "add two cold coffee",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 19, "FOOD_ITEM"]
+    ]
+  },
+
+  {
+    "text": "order one chocolate milkshake",
+    "entities": [
+      [6, 9, "QUANTITY"],
+      [10, 30, "FOOD_ITEM"]
+    ]
+  },
+
+  {
+    "text": "add french fries",
+    "entities": [[4, 16, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add two garlic bread",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 20, "FOOD_ITEM"]
+    ]
+  },
+
+  {
+    "text": "order veg sandwich",
+    "entities": [[6, 18, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add paneer sandwich",
+    "entities": [[4, 20, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order veg burger",
+    "entities": [[6, 16, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add paneer burger",
+    "entities": [[4, 18, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order margherita pizza",
+    "entities": [[6, 25, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add two paneer tikka pizza",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 27, "FOOD_ITEM"]
+    ]
+  },
+
+  {
+    "text": "order white sauce pasta",
+    "entities": [[6, 24, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add red sauce pasta",
+    "entities": [[4, 22, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order veg wrap",
+    "entities": [[6, 14, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add paneer wrap",
+    "entities": [[4, 16, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order veg biryani",
+    "entities": [[6, 17, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "order chocolate brownie",
+    "entities": [[6, 22, "FOOD_ITEM"]]
+  },
+  {
+    "text": "add brownie with ice cream",
+    "entities": [[4, 28, "FOOD_ITEM"]]
+  },
+
+  {
+    "text": "remove one coffee",
+    "entities": [
+      [7, 10, "QUANTITY"],
+      [11, 17, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "remove paneer pizza",
+    "entities": [[7, 20, "FOOD_ITEM"]]
+  },
+  {
+    "text": "remove two sandwiches",
+    "entities": [
+      [7, 10, "QUANTITY"],
+      [11, 21, "FOOD_ITEM"]
+    ]
+  },
+  
+  {
+    "text": "add two coffee and one brownie",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 14, "FOOD_ITEM"],
+      [19, 22, "QUANTITY"],
+      [23, 30, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "order one cappuccino and two french fries",
+    "entities": [
+      [6, 9, "QUANTITY"],
+      [10, 20, "FOOD_ITEM"],
+      [25, 28, "QUANTITY"],
+      [29, 41, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "add two garlic bread and one cold coffee",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 20, "FOOD_ITEM"],
+      [25, 28, "QUANTITY"],
+      [29, 40, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "order one veg sandwich and one paneer sandwich",
+    "entities": [
+      [6, 9, "QUANTITY"],
+      [10, 22, "FOOD_ITEM"],
+      [27, 30, "QUANTITY"],
+      [31, 46, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "add two margherita pizza and one veg wrap",
+    "entities": [
+      [4, 7, "QUANTITY"],
+      [8, 25, "FOOD_ITEM"],
+      [30, 33, "QUANTITY"],
+      [34, 42, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "remove one coffee and one chocolate brownie",
+    "entities": [
+      [7, 10, "QUANTITY"],
+      [11, 17, "FOOD_ITEM"],
+      [22, 25, "QUANTITY"],
+      [26, 43, "FOOD_ITEM"]
+    ]
+  },
+  {
+    "text": "remove two burgers and one sandwich",
+    "entities": [
+      [7, 10, "QUANTITY"],
+      [11, 18, "FOOD_ITEM"],
+      [23, 26, "QUANTITY"],
+      [27, 35, "FOOD_ITEM"]
+    ]
+
+  },
+    {
+        "text": "Add one Veg Farmhouse Pizza to my order",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 27, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want two plates of Cheese Balls",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [21, 33, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please add a Veg Biryani",
+        "entities": [
+            [13, 24, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can you add one Margherita Pizza",
+        "entities": [
+            [12, 15, "QUANTITY"],
+            [16, 32, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me one Paneer Tikka Pizza",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 29, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Order two Veg Farmhouse Pizzas",
+        "entities": [
+            [6, 9, "QUANTITY"],
+            [10, 30, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I will take one plate of French Fries",
+        "entities": [
+            [12, 15, "QUANTITY"],
+            [26, 38, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one Garlic Bread please",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 20, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want to order a Margherita Pizza",
+        "entities": [
+            [18, 34, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please get me two Cheese Balls",
+        "entities": [
+            [14, 17, "QUANTITY"],
+            [18, 30, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can I get one Veg Sandwich",
+        "entities": [
+            [10, 13, "QUANTITY"],
+            [14, 26, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add another Veg Farmhouse Pizza",
+        "entities": [
+            [12, 31, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Order one plate of Red Sauce Pasta",
+        "entities": [
+            [6, 9, "QUANTITY"],
+            [19, 34, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I need one Espresso",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 19, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add two Veg Biryanis to the order",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 20, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Give me one Veg Burger",
+        "entities": [
+            [8, 11, "QUANTITY"],
+            [12, 22, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please add one plate of White Sauce Pasta",
+        "entities": [
+            [11, 14, "QUANTITY"],
+            [25, 41, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me a Paneer Burger",
+        "entities": [
+            [9, 22, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one more Cheese Balls",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [13, 25, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want one Paneer Sandwich",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 26, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can you order one Veg Farmhouse Pizza for me",
+        "entities": [
+            [15, 18, "QUANTITY"],
+            [19, 38, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please add two Margherita Pizzas",
+        "entities": [
+            [11, 14, "QUANTITY"],
+            [15, 32, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me one plate of Veg Biryani",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [21, 31, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I will have one Garlic Bread",
+        "entities": [
+            [12, 15, "QUANTITY"],
+            [16, 28, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one serving of French Fries",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [19, 31, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Order one plate of Cheese Balls",
+        "entities": [
+            [6, 9, "QUANTITY"],
+            [20, 32, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want a Veg Farmhouse Pizza now",
+        "entities": [
+            [9, 28, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please give me one Red Sauce Pasta",
+        "entities": [
+            [15, 18, "QUANTITY"],
+            [19, 34, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add a Espresso to my order",
+        "entities": [
+            [6, 14, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me two Veg Burgers please",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 22, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can you add one Veg Biryani now",
+        "entities": [
+            [12, 15, "QUANTITY"],
+            [16, 27, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I need one plate of Paneer Tikka Pizza",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [21, 39, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one Margherita Pizza right now",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 24, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please order one Veg Burger",
+        "entities": [
+            [13, 16, "QUANTITY"],
+            [17, 27, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want to add one Paneer Sandwich",
+        "entities": [
+            [14, 17, "QUANTITY"],
+            [18, 33, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me one Red Sauce Pasta",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 26, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add two Cheese Balls please",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 20, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can I have one Veg Farmhouse Pizza",
+        "entities": [
+            [11, 14, "QUANTITY"],
+            [15, 34, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please add a Veg Sandwich",
+        "entities": [
+            [13, 25, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Order one Espresso",
+        "entities": [
+            [6, 9, "QUANTITY"],
+            [10, 18, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I will take two Veg Farmhouse Pizzas",
+        "entities": [
+            [12, 15, "QUANTITY"],
+            [16, 36, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one plate of French Fries to my order",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [18, 30, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me one Paneer Burger",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [11, 24, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want to order one Margherita Pizza",
+        "entities": [
+            [18, 21, "QUANTITY"],
+            [22, 38, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please add one Veg Biryani plate",
+        "entities": [
+            [11, 14, "QUANTITY"],
+            [15, 26, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Can you get me one Veg Burger",
+        "entities": [
+            [15, 18, "QUANTITY"],
+            [19, 29, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Add one Paneer Sandwich now",
+        "entities": [
+            [4, 7, "QUANTITY"],
+            [8, 23, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "I want one plate of Cheese Balls",
+        "entities": [
+            [7, 10, "QUANTITY"],
+            [21, 33, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Please order two Red Sauce Pastas",
+        "entities": [
+            [13, 16, "QUANTITY"],
+            [17, 33, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "Get me a Veg Farmhouse Pizza please",
+        "entities": [
+            [9, 28, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "remove Paneer Burger",
+        "entities": [
+            [7, 20, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "remove Veg Burger",
+        "entities": [
+            [7, 17, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "remove Cheese Balls",
+        "entities": [
+            [7, 19, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "order three Red Sauce Pastas",
+        "entities": [
+            [6, 11, "QUANTITY"],
+            [12, 28, "FOOD_ITEM"]
+        ]
+    },
+    {
+        "text": "order two Veg Burgers",
+        "entities": [
+            [6, 9, "QUANTITY"],
+            [10, 21, "FOOD_ITEM"]
+        ]
+    }
+
+]

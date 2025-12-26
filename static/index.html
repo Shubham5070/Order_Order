@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🍽 Restaurant Ordering</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .messages {
+      background: #eef6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 10px;
+      margin-bottom: 15px;
+      min-height: 24px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 50%;
+    }
+
+    .menu-item,
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-item:last-child,
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      background: #22c55e;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #3b82f6;
+    }
+
+    button:disabled {
+      background: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+
+    .price {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .qty {
+      font-weight: bold;
+    }
+
+    .total {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* ---------- CHATBOT ---------- */
+    .chatbot {
+      margin-top: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    .chat-header {
+      background: #3b82f6;
+      color: white;
+      padding: 8px;
+    }
+
+    .chat-messages {
+      padding: 10px;
+      height: 160px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🍽 Restaurant Ordering</h2>
+
+<div class="messages" id="messages">
+  Welcome! Please add items to your cart.
+</div>
+
+<div class="container">
+
+  <!-- MENU -->
+  <div class="box">
+    <h3>Menu</h3>
+    <div id="menu"></div>
+  </div>
+
+  <!-- CART -->
+  <div class="box">
+    <h3>Cart</h3>
+
+    <div id="cart">No items yet.</div>
+    <div class="total" id="total">Total: ₹0</div>
+
+    <br />
+
+    <button
+      class="secondary"
+      id="confirmBtn"
+      onclick="confirmCart()"
+    >
+      Confirm Cart
+    </button>
+
+    <button
+      id="placeBtn"
+      onclick="placeOrder()"
+      disabled
+    >
+      Place Order
+    </button>
+
+    <!-- CHATBOT -->
+    <div class="chatbot">
+      <div class="chat-header">💬 Help Chat</div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div><b>Bot:</b> Hi! Ask me about menu or ordering 😊</div>
+      </div>
+
+      <div class="chat-input">
+        <input id="chatInput" placeholder="Type a message..." />
+        <button onclick="sendChat()">Send</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let sessionId = null;
+
+function showMessage(msg) {
+  document.getElementById("messages").innerText = msg;
+}
+
+/* ---------- APP START ---------- */
+async function startApp() {
+  await startSession();
+  await loadMenu();
+  await loadCart();
+}
+
+/* ---------- SESSION ---------- */
+async function startSession() {
+  const res = await fetch("/session/start", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ table_id: "T1" })
+  });
+
+  const data = await res.json();
+  sessionId = data.session_id;
+  showMessage("Session started. Add items to cart.");
+}
+
+/* ---------- MENU ---------- */
+async function loadMenu() {
+  const res = await fetch("/menu");
+  const menu = await res.json();
+
+  const menuDiv = document.getElementById("menu");
+  menuDiv.innerHTML = "";
+
+  const grouped = {};
+  menu.forEach(item => {
+    if (!grouped[item.category]) grouped[item.category] = [];
+    grouped[item.category].push(item);
+  });
+
+  Object.keys(grouped).forEach(category => {
+    const section = document.createElement("div");
+    section.innerHTML = `<h4>${category}</h4>`;
+    section.style.marginTop = "15px";
+
+    grouped[category].forEach(item => {
+      const div = document.createElement("div");
+      div.className = "menu-item";
+      div.innerHTML = `
+        <div>
+          <strong>${item.name}</strong><br />
+          <span class="price">₹${item.price}</span>
+        </div>
+        <button onclick="addItem('${item.id}', '${item.name}')">Add</button>
+      `;
+      section.appendChild(div);
+    });
+
+    menuDiv.appendChild(section);
+  });
+}
+
+/* ---------- CART ---------- */
+async function addItem(itemId, itemName) {
+  await fetch("/cart/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      session_id: sessionId,
+      item_id: itemId,
+      quantity: 1
+    })
+  });
+
+  showMessage(`${itemName} added to cart`);
+  await loadCart();
+}
+
+async function loadCart() {
+  const res = await fetch(`/cart/${sessionId}`);
+  const data = await res.json();
+  renderCart(data.items);
+}
+
+function renderCart(cart) {
+  const cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+
+  let total = 0;
+
+  if (!cart || cart.length === 0) {
+    cartDiv.innerText = "No items yet.";
+    document.getElementById("total").innerText = "Total: ₹0";
+    return;
+  }
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong><br />
+        ₹${item.price} × <span class="qty">${item.quantity}</span>
+      </div>
+      <button onclick="removeItem('${item.item_id}', '${item.name}')">❌</button>
+    `;
+    cartDiv.appendChild(div);
+  });
+
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+/* ---------- CHAT ---------- */
+async function sendChat() {
+  const input = document.getElementById("chatInput");
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const chatBox = document.getElementById("chatMessages");
+  chatBox.innerHTML += `<div><b>You:</b> ${msg}</div>`;
+  input.value = "";
+
+  const res = await fetch("/agent/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      session_id: sessionId,
+      message: msg
+    })
+  });
+
+
+  const data = await res.json();
+
+  chatBox.innerHTML += `
+    <div>
+      <b>Bot:</b><br/>
+      ${renderBotResponse(data)}
+    </div>
+  `;
+
+  // ✅ IMPORTANT: update cart if backend changed it
+  if (data.cart) {
+    renderCart(data.cart);
+  }
+
+
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+/* ---------- ORDER ---------- */
+async function confirmCart() {
+  await fetch(`/cart/confirm?session_id=${sessionId}`, { method: "POST" });
+
+  showMessage("Cart confirmed ✅ You can place the order now.");
+  document.getElementById("confirmBtn").disabled = true;
+  document.getElementById("placeBtn").disabled = false;
+}
+function renderBotResponse(data) {
+  let html = "";
+
+  if (data.llm?.message) {
+    html += `<div><b>Bot:</b> ${data.llm.message}</div><hr/>`;
+  }
+
+  html += `<b>Intent:</b> ${data.intent}<br/>`;
+  html += `<b>Intent Confidence:</b> ${data.intent_confidence}<br/>`;
+
+  if (data.ner) {
+    html += `<b>NER Confidence:</b> ${data.ner_confidence}<br/>`;
+    html += `<pre>${JSON.stringify(data.ner, null, 2)}</pre>`;
+  } else {
+    html += `<i>No NER payload</i>`;
+  }
+
+  return html;
+}
+
+
+
+async function placeOrder() {
+  const res = await fetch(`/order/place?session_id=${sessionId}`, {
+    method: "POST"
+  });
+
+  const data = await res.json();
+
+  // ✅ redirect after order placement
+  window.location.href =
+    `/order_status.html?order_id=${data.order_id}&session_id=${sessionId}`;
+}
+
+async function removeItem(itemId, itemName) {
+  const res = await fetch("/cart/remove", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      session_id: sessionId,
+      item_id: itemId
+    })
+  });
+
+  const data = await res.json();
+  showMessage(`${itemName} removed from cart`);
+  renderCart(data.items);
+}
+function renderNER(data) {
+  let html = "";
+
+  // ---- Intent ----
+  html += `Intent: <b>${data.intent}</b><br/>`;
+  html += `Intent Confidence: <b>${data.intent_confidence ?? "N/A"}</b><br/>`;
+
+  // ---- NER ----
+  if (data.ner) {
+    html += `<hr/>`;
+    html += `<b>NER</b><br/>`;
+    html += `NER Confidence: <b>${data.ner_confidence ?? "N/A"}</b><br/>`;
+
+    // ---- Pretty-print full NER payload ----
+    html += `<pre style="
+      background:#f8f8f8;
+      padding:8px;
+      border-radius:6px;
+      font-size:12px;
+      overflow-x:auto;
+    ">${JSON.stringify(data.ner, null, 2)}</pre>`;
+  } else {
+    html += `<i>No NER payload</i><br/>`;
+  }
+
+  return html;
+}
+
+
+startApp();
+</script>
+
+</body>
+</html>

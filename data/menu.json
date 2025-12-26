@@ -1,0 +1,196 @@
+{
+  "category": "restaurant_menu",
+  "size": "medium",
+  "items": [
+    {
+      "id": "1",
+      "name": "Espresso",
+      "price": 120,
+      "category": "Hot Beverages"
+    },
+    {
+      "id": "2",
+      "name": "Cappuccino",
+      "price": 150,
+      "category": "Hot Beverages"
+    },
+    {
+      "id": "3",
+      "name": "Cafe Latte",
+      "price": 160,
+      "category": "Hot Beverages"
+    },
+    {
+      "id": "4",
+      "name": "Americano",
+      "price": 140,
+      "category": "Hot Beverages"
+    },
+    {
+      "id": "5",
+      "name": "Hot Chocolate",
+      "price": 180,
+      "category": "Hot Beverages"
+    },
+    {
+      "id": "6",
+      "name": "Masala Tea",
+      "price": 60,
+      "category": "Hot Beverages"
+    },
+
+    {
+      "id": "7",
+      "name": "Cold Coffee",
+      "price": 170,
+      "category": "Cold Beverages"
+    },
+    {
+      "id": "8",
+      "name": "Iced Latte",
+      "price": 180,
+      "category": "Cold Beverages"
+    },
+    {
+      "id": "9",
+      "name": "Chocolate Milkshake",
+      "price": 190,
+      "category": "Cold Beverages"
+    },
+    {
+      "id": "10",
+      "name": "Strawberry Milkshake",
+      "price": 190,
+      "category": "Cold Beverages"
+    },
+    {
+      "id": "11",
+      "name": "Oreo Milkshake",
+      "price": 210,
+      "category": "Cold Beverages"
+    },
+
+    {
+      "id": "12",
+      "name": "French Fries",
+      "price": 140,
+      "category": "Snacks"
+    },
+    {
+      "id": "13",
+      "name": "Cheese Balls",
+      "price": 160,
+      "category": "Snacks"
+    },
+    {
+      "id": "14",
+      "name": "Garlic Bread",
+      "price": 150,
+      "category": "Snacks"
+    },
+    {
+      "id": "15",
+      "name": "Nachos with Cheese",
+      "price": 170,
+      "category": "Snacks"
+    },
+    {
+      "id": "16",
+      "name": "Veg Sandwich",
+      "price": 140,
+      "category": "Snacks"
+    },
+    {
+      "id": "17",
+      "name": "Paneer Sandwich",
+      "price": 170,
+      "category": "Snacks"
+    },
+    {
+      "id": "18",
+      "name": "Veg Burger",
+      "price": 160,
+      "category": "Snacks"
+    },
+    {
+      "id": "19",
+      "name": "Paneer Burger",
+      "price": 190,
+      "category": "Snacks"
+    },
+
+    {
+      "id": "20",
+      "name": "Margherita Pizza",
+      "price": 220,
+      "category": "Mains"
+    },
+    {
+      "id": "21",
+      "name": "Veg Farmhouse Pizza",
+      "price": 260,
+      "category": "Mains"
+    },
+    {
+      "id": "22",
+      "name": "Paneer Tikka Pizza",
+      "price": 280,
+      "category": "Mains"
+    },
+    {
+      "id": "23",
+      "name": "White Sauce Pasta",
+      "price": 240,
+      "category": "Mains"
+    },
+    {
+      "id": "24",
+      "name": "Red Sauce Pasta",
+      "price": 230,
+      "category": "Mains"
+    },
+    {
+      "id": "25",
+      "name": "Veg Wrap",
+      "price": 180,
+      "category": "Mains"
+    },
+    {
+      "id": "26",
+      "name": "Paneer Wrap",
+      "price": 210,
+      "category": "Mains"
+    },
+    {
+      "id": "27",
+      "name": "Veg Biryani",
+      "price": 200,
+      "category": "Mains"
+    },
+
+    {
+      "id": "28",
+      "name": "Chocolate Brownie",
+      "price": 150,
+      "category": "Desserts"
+    },
+    {
+      "id": "29",
+      "name": "Brownie with Ice Cream",
+      "price": 180,
+      "category": "Desserts"
+    },
+    {
+      "id": "30",
+      "name": "Waffle with Chocolate Sauce",
+      "price": 200,
+      "category": "Desserts"
+    },
+    {
+      "id": "31",
+      "name": "Vanilla Ice Cream",
+      "price": 120,
+      "category": "Desserts"
+    }
+  ]
+}
